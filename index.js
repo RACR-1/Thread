@@ -1,7 +1,8 @@
 const btnStop = document.querySelector("#btnStop");
 const begin = document.querySelector("#begin");
 const lengh = document.querySelector("#length");
-
+const body = document.querySelector("#App");
+/* 
 //see the console
 
 async function funFor() {
@@ -29,4 +30,29 @@ async function funFor() {
 }
 begin.addEventListener("click", () => {
   funFor();
+}); */
+
+function sleeptime(time) {
+  new Promise((r) => setTimeout(r, time));
+}
+
+async function putTxt() {
+  const h = document.createElement("H4");
+  h.textContent = "sla";
+  body.appendChild(h);
+  for (var i = 0; i < 50; i++) {
+    h.textContent = i;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+}
+
+function ativar() {
+  btnStop.addEventListener("click", () => {
+    putTxt();
+    console.log("oi");
+  });
+}
+
+begin.addEventListener("click", () => {
+  ativar();
 });
