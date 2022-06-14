@@ -4,31 +4,29 @@ const lengh = document.querySelector("#length");
 
 //see the console
 
-async function Funfor(time) {
-  let variable = 0;
-
-  var accumulate = [];
-
+async function funFor() {
+  var acumular = [];
+  let stopl = 0;
   btnStop.addEventListener("click", () => {
-    variable++;
+    stopl = 1;
   });
   lengh.addEventListener("click", () => {
-    console.log(accumulate);
+    console.log(acumular);
   });
 
-  for (var i = 0; i < 40; i++) {
-    accumulate.push(i);
-    console.log("number ", i);
-    await new Promise((r) => setTimeout(r, 1000));
-    if (variable > 0) {
+  for (var i = 0; i < 50; i++) {
+    console.log(i);
+    acumular.push(i);
+    if (stopl > 0) {
       break;
     }
+    await new Promise((r) => setTimeout(r, 900));
   }
-  var accumulate;
-
-  variable--;
+  stopl = 0;
+  acumular = "";
+  acumular = [];
+  return;
 }
-
 begin.addEventListener("click", () => {
-  Funfor(1000);
+  funFor();
 });
